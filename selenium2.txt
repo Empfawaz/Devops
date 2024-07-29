@@ -1,0 +1,53 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTest {
+    public static void main(String[] args) {
+        
+        // Create a new instance of the Chrome driver
+        ChromeDriver driver = new ChromeDriver();
+
+        try {
+            // Open the local HTML file
+            driver.get("C:\\devops\\Myproject\\index.html");
+
+            // Find the button using its tag name and click it
+            WebElement button = driver.findElement(By.tagName("button"));
+            button.click();
+
+            // Switch to the alert box and accept it
+            driver.switchTo().alert().accept();
+
+            System.out.println("Test passed!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Test failed!");
+        } finally {
+            // Close the browser
+            //driver.quit();
+        }
+    }
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script>
+        function showAlert() {
+            alert('Button was clicked!');
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello, Selenium!</h1>
+    <button onclick="showAlert()">Click me</button>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Registration form</h1>
+    <form action="fr.php" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="n"><br><br>
+        
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass"><br><br>
+        
+        <label for="mail">Email</label>
+        <input type="email" id="mail" name="email"><br><br>
+        
+        <label>Gender</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+        
+        <label>Programming languages you know</label><br>
+        <input type="checkbox" id="c" name="language[]" value="C">
+        <label for="c">C Language</label><br>
+        
+        <input type="checkbox" id="python" name="language[]" value="Python">
+        <label for="python">Python</label><br>
+        
+        <input type="checkbox" id="java" name="language[]" value="Java">
+        <label for="java">Java</label><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
+
+
+
+
+
+
+
+PHP
+<?php
+echo "Your name: " . $_POST["n"] . "<br>";
+echo "Your password: " . $_POST["pass"] . "<br>";
+echo "Your email: " . $_POST["email"] . "<br>";
+echo "Languages you know: <br>";
+foreach($_POST["language"] as $lang) {
+    echo $lang . "<br>";
+}
+?>
